@@ -1,0 +1,38 @@
+extends base
+
+block content
+  .ht__bradcaump__area.bg-image--6
+    .container
+      .row
+        .col-lg-12
+          .bradcaump__inner.text-center
+            h2.bradcaump-title Contact Us
+            nav.bradcaump-content
+              a.breadcrumb_item(href='/') Home 
+              span.brd-separetor /
+              span.breadcrumb_item.active Contact Us
+
+
+  .wn_contact_area.bg--white.pt--80.pb--80
+    .container
+      .row
+        .col-lg-8.col-12
+          .contact-form-wrap
+            h2.contact__title Get in touch
+            p For more information, you can contact me directly using the form below
+            form.contact-form
+              .single-contact-form.space-between
+                input#first-name(type='text' name='firstname' placeholder='First Name*')
+                input#last-name(type='text' name='lastname' placeholder='Last Name*')
+
+              .single-contact-form.space-between
+                input#contact-email(type='email' name='email' placeholder='Email')
+                input#contact-phone(type='text' name='phone' placeholder='Phone Number*')
+
+
+              .single-contact-form.message
+                textarea(name='message' placeholder='Type your message here..')
+
+              .contact-btn
+                button(type='submit') Send Message
+

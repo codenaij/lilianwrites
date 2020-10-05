@@ -1,0 +1,54 @@
+extends base
+
+block content
+  .ht__bradcaump__area.bg-image--6
+    .container
+      .row
+        .col-lg-12
+          .bradcaump__inner.text-center
+            h2.bradcaump-title Shop
+            nav.bradcaump-content
+              a.breadcrumb_item(href='/') Home 
+              span.brd-separetor /
+              span.breadcrumb_item.active Shop
+
+  section.page-shop-sidebar.left--sidebar.bg--white.section-padding--lg
+    .container
+      .row
+        .col-lg-12
+
+          .tab__container
+            .shop-grid.tab-pane.fade.show.active#nav-grid 
+              // role="tabpanel"
+              .row
+
+                .product.product__style--3.col-lg-4.col-md-4.col-sm-6.col-12
+                  .product__thumb
+                    a.first__img(href='checkout'): img(src='images/books/1.png' alt='product image')
+                    a.second__img.animation1(href='checkout'): img(src='images/books/1_1.png' alt='product image')
+                    .hot__box
+                      span.hot-label New Book
+
+                  .product__content.content--center
+                    h4: a(href='single-product.html') Be Safe
+                    ul.prize.d-flex
+                      li N500.00>
+                      li.old_prize 1000.00
+
+                    .action
+                      .actions_inner
+                        ul.add_to_links
+                          li: a.cart(href='checkout')
+                            i.fas.fa-shopping-cart
+                          li: a.wishlist(href='wishlist.html')
+                            i.fas.fa-file-pdf
+                    .product__hover--content
+                      ul.rating.d-flex
+                        li.on
+                          i.fa.fa-star-o
+                        li.on
+                          i.fa.fa-star-o
+                        li.on
+                          i.fa.fa-star-o
+                        li: i.fa.fa-star-o
+                        li: i.fa.fa-star-o

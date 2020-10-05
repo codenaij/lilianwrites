@@ -1,0 +1,38 @@
+extends base
+
+block content
+  .ht__bradcaump__area.bg-image--6
+      .container
+        .row
+          .col-lg-12
+            .bradcaump__inner.text-center
+              h2.bradcaump-title Blogs
+              nav.bradcaump-content
+                a.breadcrumb_item(href='/') Home 
+                span.brd-separetor /
+                span.breadcrumb_item.active blogs
+  main(role='main')
+  #shopify-section-blog-template.shopify-section
+    // Start Blog Area
+    .page-blog.section-padding--lg.blog-sidebar.right-sidebar
+      .container
+        .row
+          .col-lg-9.col-12
+            .blog-page
+              .row
+                each blog in blogs
+                  .col-lg-12.col-md-12
+                    article.blog__post.blog-post-first.d-flex.flex-wrap
+                      .thumb
+                        a(href=`/blog/${blog._id}`)
+                          img(src=`/images/blog_photos/${blog.photo}` alt='Blog Image')
+                      .content
+                        h4
+                          a(href=`/blog/${blog._id}`)= blog.title
+                        ul.post__meta
+                          li= `Author : ${blog.author}`
+                          li.post_separator  / 
+                          li= blog.createdAt.toLocaleString('en-us', {month: 'short', year: 'numeric', day: 'numeric'})
+                        p= blog.blog.split(" ").splice(0,30).join(" ")
+                          .blog__btn
+                            a.shopbtn(href=`/blog/${blog._id}`) Read More

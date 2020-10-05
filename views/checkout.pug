@@ -1,0 +1,35 @@
+extends base
+
+block content
+  .cart-main-area.section-padding--lg.bg--white
+  .container
+    .row
+      .col-md-12.col-sm-12.ol-lg-12
+        form(action="#")
+          .table-content.wnro__table.table-responsive
+            table
+              thead
+                tr.title-top
+                  th.product-thumbnail Image
+                  th.product-name Product
+                  th.product-price Price
+                  th.product-quantity Quantity
+                  th.product-subtotal Total
+
+
+              tbody
+                tr
+                  td.product-thumbnail: a(href='#')
+                    img(src='images/books/1.png' alt='product image')
+                  td.product-name: a(href='#') Be Safe </a></td>
+                  td.product-price: span.amount N500.00
+                  td.product-quantity
+                    input(type="number" value="1")
+                  td.product-subtotal N500.00
+
+
+        .cartbox__btn
+          ul.cart__btn__list.d-flex.flex-wrap.flex-md-nowrap.flex-lg-nowrap.justify-content-between
+
+            li Pay into the provided account and click here to fill form to confirm payment
+            li: a(href='contact') Confirm Payment

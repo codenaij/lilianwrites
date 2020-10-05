@@ -1,0 +1,78 @@
+extends base
+
+block content
+  .ht__bradcaump__area.bg-image--6
+      .container
+        .row
+          .col-lg-12
+            .bradcaump__inner.text-center
+              h2.bradcaump-title Blogs
+              nav.bradcaump-content
+                a.breadcrumb_item(href='/') Home 
+                span.brd-separetor /
+                a.breadcrumb_item(href='/blogs') Blogs 
+                span.brd-separetor /
+                span.breadcrumb_item.active= blog.title 
+
+  .page-blog-details.section-padding--lg.bg--white
+  .container
+    .row
+      .col-lg-9.col-12
+        .blog-details.content
+          article.blog-post-details
+            .post-thumbnail
+              img(src=`/images/blog_photos/${user.photo}` alt='blog images')
+            .post_wrapper
+              .post_header
+                h2= blog.title
+                .blog-date-categori
+                  ul
+                    li= blog.createdAt.toLocaleString('en-us', {month: 'short', year: 'numeric', day: 'numeric'})
+                    li
+                      a(href='#' title='Posts by boighor' rel='author')= blog.author
+              .post_content
+                p= blog.blog
+
+          //-     ul.blog_meta
+                
+          //- .comments_area
+          //-   h3.comment__title Comments
+          //-   ul.comment__list
+          //-     li
+          //-       .wn__comment
+          //-         .thumb
+          //-           img(src='images/blog/comment/1.jpeg' alt='comment images')
+          //-         .content
+          //-           .comnt__author.d-block.d-sm-flex
+          //-             span
+          //-               a(href='#') admin
+          //-               |  Post author
+          //-             span October 6, 2014 at 9:26 am
+                    
+          //-           p
+          //-             | Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales.
+          //-             | Fusce ornare sit
+              
+          //- .comment_respond
+          //-   h3.reply_title
+          //-     | Leave a Reply 
+
+          //-   if user  
+          //-     form.comment__form(action='#')
+
+          //-       .input__box
+          //-         textarea(name='comment' placeholder='Your comment here' row='2' col='2')
+          //-       .submite__btn
+          //-         a(href='#') Post Comment
+            
+          //-   else
+          //-     p Please Login to comment
+
+
+//- h1= blog.title
+
+//- p= blog.blog
+
+//- h3= blog.author
+
+//- h5= blog.createdAt

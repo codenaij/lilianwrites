@@ -1,0 +1,113 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content='')
+    //- meta(http-equiv="Content-Security-Policy" content="script-src https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js; child-src 'none';")
+    //- meta(http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js")
+    link(rel='shortcut icon', type='image/png' href='favicon.ico')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.14.0/css/all.css' integrity='sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc' crossorigin='anonymous')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/plugins/animation.css')
+    //- link(rel='stylesheet', href='css/plugins/animation.css')
+    link(rel='stylesheet', href='css/plugins/bicon.min.css')
+    link(rel='stylesheet', href='css/plugins/fakeloader.css')
+    link(rel='stylesheet', href='css/plugins/fancybox.css')
+    link(rel='stylesheet', href='css/plugins/fontawesome.min.css')
+    link(rel='stylesheet', href='css/plugins/fotorama.css')
+    link(rel='stylesheet', href='css/plugins/jquery-ul.min.css')
+    link(rel='stylesheet', href='css/plugins/lightbox.css')
+    link(rel='stylesheet', href='css/plugins/mainmenu.css')
+    link(rel='stylesheet', href='css/plugins/material-design-iconic-font.min.css')
+    link(rel='stylesheet', href='css/plugins/nivo-preview-2.css')
+    link(rel='stylesheet', href='css/plugins/nivo-slider.css')
+    link(rel='stylesheet', href='css/plugins/owl.carousel.min.css')
+    link(rel='stylesheet', href='css/plugins/owl.theme.default.min.css')
+    link(rel='stylesheet', href='css/plugins/pe-icon-7-stroke.css')
+    link(rel='stylesheet', href='css/plugins/simple-line-icons.css')
+    link(rel='stylesheet', href='css/plugins/slick.min.css')
+    link(rel='stylesheet', href='style.css')
+    link(rel='stylesheet', href='style2.css')
+    link(rel='stylesheet', href='css/custom.css')
+    
+    //- link(rel='stylesheet', href='')
+    title Lilian Writes
+
+  body
+    mixin navItem(link, text, icon, active)
+      li(class=`${active ? 'side-nav--active' : ''}`)
+        a(href=`${link}`)
+          svg
+            use(xlink:href=`images/icons.svg#icon-${icon}`)
+          | #{text}
+    .wrapper#wrapper
+      include _header
+      main.main
+        .user-view
+          nav.user-view__menu
+            ul.side-nav
+              +navItem('#', 'Settings', 'settings', true)
+              //- +navItem('#', 'My bookings', 'briefcase')
+              +navItem('#', 'My comments', 'star')
+
+            - if (user.role === 'admin')
+              .admin-nav
+                h5.admin-nav__heading Admin
+                ul.side-nav
+                  +navItem('/blog-area', 'Manage Blogs', 'book-open')
+                  +navItem('#', 'Manage users', 'users')
+                  +navItem('#', 'Manage comments', 'star')
+                  +navItem('#', 'Manage purchases', 'briefcase')
+
+          .user-view__content
+            .user-view__form-container
+              h2.heading-secondary.ma-bt-md Your account settings
+              
+              //- WITHOUT API
+              //- form.form.form-user-data(action='/submit-user-data' method='POST')
+              
+              //- WITH API
+              form.form.form-user-data
+                .form__group
+                  label.form__label(for='name') Name
+                  input#name.form__input(type='text', value=`${user.name}`, required, name='name')
+                .form__group.ma-bt-md
+                  label.form__label(for='email') Email address
+                  input#email.form__input(type='email', value=`${user.email}`, required, name='email')
+                .form__group.form__photo-upload
+                  img.form__user-photo(src=`/images/users/${user.photo}`, alt='User photo')
+                  input.form__upload(type='file', accept='image/*', id='photo', name='photo')
+                  label(for='photo') Choose new photo
+                .form__group.right
+                  button.btn.btn--small.btn--green Save settings
+                  
+            .line &nbsp;
+            
+            .user-view__form-container 
+              h2.heading-secondary.ma-bt-md Password change
+              form.form.form-user-password
+                .form__group
+                  label.form__label(for='password-current') Current password
+                  input#password-current.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                .form__group
+                  label.form__label(for='password') New password
+                  input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                .form__group.ma-bt-lg
+                  label.form__label(for='password-confirm') Confirm password
+                  input#password-confirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                .form__group.right
+                  button.btn.btn--small.btn--green.btn--save-password Save password
+    
+      include _footer
+
+    script(src='js/vendor/modernizr-3.5.0.min.js')
+    script(src='js/vendor/jquery-3.2.1.min.js')
+    script(src='js/webjs/popper.min.js')
+    script(src='js/webjs/bootstrap.min.js')
+    script(src='js/webjs/plugins.js')
+    script(src='js/webjs/active.js')
+    script(src='js/bundle.js')

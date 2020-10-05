@@ -1,0 +1,52 @@
+extends base
+
+block content    
+  section.my_account_area.pt--80.pb--55.bg--white
+    .container
+      .row
+        .col-lg-6.col-12
+          .my__account__wrapper
+            h3.account__title Login
+            form.form.form--login
+              .account__form
+                .input__box
+                  label Email address 
+                    span *
+                  input#email(type='email')
+
+                .input__box
+                  label Password
+                    span *
+                  input#password(type='password')
+
+                .form__btn
+                  button Login
+                  <label class="label-for-checkbox">
+
+                a.forget_pass(href='#') Lost your password?
+
+        .col-lg-6.col-12
+          .my__account__wrapper
+            h3.account__title Register
+            form.register
+              .account__form
+                .input__box
+                  label Name
+                    span *
+                  input#register-name(type='text', name='name')
+                .input__box
+                  label Email address 
+                    span *
+                  input#register-email(type='email', name='email')
+
+                .input__box
+                  label Password
+                    span *
+                  input#register-password(type='password', name='password')
+                .input__box
+                  label Confirm Password
+                    span *
+                  input#register-password-confirm(type='password', name='confirmPassword')
+
+                .form__btn
+                  button Register

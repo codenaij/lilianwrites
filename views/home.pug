@@ -1,0 +1,32 @@
+extends base
+
+block content
+  include _slider
+  include _bestseller
+  include _newsletter
+
+  // BLOG SECTION IN
+  section.wn__recent__post.style-two.ptb--80
+  .container
+    .row
+      .col-lg-12
+        .section__title.text-center
+          h2.title__be--2 Our
+            span.color--theme  Blog
+          p Check out our blogs and make contributions.
+
+    .row.mt--50
+      each blog in blogs
+        .col-md-6.col-lg-4.col-sm-12
+          .post__itam
+            .content
+              h3: a(href=`/blog/${blog._id}`)= `${blog.title.split(" ").splice(0,7).join(" ")}...`
+              p= blog.blog.split(" ").splice(0,30).join(" ")
+              .post__time
+                span.day= blog.createdAt.toLocaleString('en-us', {month: 'short', year: 'numeric', day: 'numeric'})
+                //- .post-meta
+                //-   ul
+                //-     li: a(href='#')
+                //-       i.bi.bi-love 72  
+                //-     li: a(href='#')
+                //-       i.bi.bi-chat-bubble 27 

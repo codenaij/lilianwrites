@@ -1,0 +1,59 @@
+header#wn__header.header__area.header__absolute.sticky__header
+  .container-fluid
+    .row
+      .col-md-6.col-sm-6.col-6.col-lg-2
+        .logo
+          a(href='/')
+            img(src='/images/logo/logo.png' alt='logo images')
+      .col-lg-8.d-none.d-lg-block
+        nav.mainmenu__nav
+          ul.meninmenu.d-flex.justify-content-start
+            li: a(href='/') Home
+            li: a(href='/blog') Blog
+            li: a(href='/shop') Shop
+            li: a(href='/about') About
+            li: a(href='/contact') Contact
+      .col-md-6.col-sm-6.col-6.col-lg-2
+        ul.header__sidebar__right.d-flex.justify-content-end.align-items-center
+          li.setting__bar__icon
+            a.setting__active(href='#')
+            .searchbar__content.setting__block
+              .content-inner
+                if user
+                  .switcher-currency
+                    strong.label.switcher-label
+                      span Welcome 
+                      span= user.name.split(' ')[0]
+
+                    .switcher-options
+                      .switcher-currency-trigger
+                        .setting__menu
+                          
+                          span
+                            a(href='/me') My Account
+                          span
+                            a.nav-logoutbtn Logout
+
+                else
+                  .switcher-currency
+                    strong.label.switcher-label
+                      span My Account
+
+                    .switcher-options
+                      .switcher-currency-trigger
+                        .setting__menu
+                          
+                          span
+                            a(href='/login') Sign In
+                          span
+                            a(href="/login") Create An Account
+    .row.d-none
+      .col-lg-12.d-none
+        nav.mobilemenu__nav
+          ul.meninmenu
+            li: a(href='/') Home
+            li: a(href='/blog') Blog
+            li: a(href='/shop') Shop
+            li: a(href='/about') About
+            li: a(href='/contact') Contact
+    .mobile-menu.d-block.d-lg-none
