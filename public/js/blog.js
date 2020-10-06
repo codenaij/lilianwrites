@@ -7,7 +7,7 @@ export const saveBlog = async (data) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/blogs',
+      url: '/api/v1/blogs',
       data
       // data: {
       //   title, 
@@ -31,7 +31,7 @@ export const saveSubscription = async(email) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/subscribe',
+      url: '/api/v1/subscribe',
       data: {
         email
       }
@@ -49,7 +49,7 @@ export const saveContact = async (firstName, lastName, email, phone, message) =>
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/contact',
+      url: '/api/v1/contact',
       data: {
         firstName,
         lastName,
