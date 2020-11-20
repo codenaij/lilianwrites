@@ -83,7 +83,7 @@ if (adminPostBlogForm) {
     data.append('title', document.getElementById('blogtitle').value);
     data.append('blog', document.getElementById('blogblog').value);
     data.append('author', document.getElementById('blogauthor').value);
-    // data.append('photo', document.getElementById('photo').files[0]);
+    data.append('photo', document.getElementById('photo').files[0]);
     saveBlog(data);
   });
 }
